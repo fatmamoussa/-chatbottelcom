@@ -1,1 +1,6 @@
 venv_rasa
+datasets/data_activation.csv
+datasets/data_data.csv
+datasets/data_parc.csv
+datasets/data_refil.csv
+datasets/data_trafic.csv
