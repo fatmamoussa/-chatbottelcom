@@ -1,0 +1,152 @@
+{
+  "remercier": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 8.0,
+    "confused_with": {
+      "greet": 4,
+      "mood_great": 3,
+      "goodbye": 1
+    }
+  },
+  "nier": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 8.0,
+    "confused_with": {
+      "deny": 4,
+      "mood_unhappy": 2,
+      "affirm": 1
+    }
+  },
+  "au_revoir": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 10.0,
+    "confused_with": {
+      "greet": 4,
+      "goodbye": 2,
+      "deny": 2
+    }
+  },
+  "info_client": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 7,
+      "mood_unhappy": 4,
+      "goodbye": 1
+    }
+  },
+  "affirmer": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 9.0,
+    "confused_with": {
+      "affirm": 3,
+      "mood_great": 2,
+      "greet": 2
+    }
+  },
+  "voir_recharges": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 12,
+      "affirm": 3
+    }
+  },
+  "conso_internet": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 8,
+      "mood_unhappy": 3,
+      "goodbye": 1
+    }
+  },
+  "cout_total": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 8,
+      "affirm": 3,
+      "goodbye": 2
+    }
+  },
+  "forfaits_actives": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 6,
+      "mood_great": 5,
+      "mood_unhappy": 3
+    }
+  },
+  "saluer": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 11.0,
+    "confused_with": {
+      "greet": 3,
+      "goodbye": 2,
+      "deny": 2
+    }
+  },
+  "consulter_offre": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "greet": 13,
+      "affirm": 1,
+      "deny": 1
+    }
+  },
+  "historique_appels": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 15.0,
+    "confused_with": {
+      "mood_unhappy": 8,
+      "greet": 4,
+      "affirm": 2
+    }
+  },
+  "micro avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 151.0
+  },
+  "macro avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 151.0
+  },
+  "weighted avg": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 151.0
+  },
+  "accuracy": 0.0
+}

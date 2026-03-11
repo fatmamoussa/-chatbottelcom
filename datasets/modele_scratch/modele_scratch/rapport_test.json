@@ -1,0 +1,1780 @@
+{
+  "timestamp": "2026-03-09T21:40:03.591288",
+  "total_tests": 250,
+  "reussites": 250,
+  "echecs": 0,
+  "details": [
+    {
+      "client": "CC_57527837",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_57527837",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57527837",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_57527837",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57527837",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_57527837",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_57527837",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_57527837",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57527837",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_57527837",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51738838",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_51738838",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51738838",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_51738838",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51738838",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_51738838",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51738838",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_51738838",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51738838",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_51738838",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57898659",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_57898659",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57898659",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_57898659",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_57898659",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_57898659",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57898659",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_57898659",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57898659",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_57898659",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53449099",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_53449099",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53449099",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_53449099",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53449099",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_53449099",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53449099",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_53449099",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53449099",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_53449099",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50059185",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50059185",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50059185",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50059185",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50059185",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50059185",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50059185",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50059185",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50059185",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50059185",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57628824",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_57628824",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57628824",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_57628824",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_57628824",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_57628824",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57628824",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_57628824",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57628824",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_57628824",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55839697",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55839697",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55839697",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55839697",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55839697",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55839697",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55839697",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55839697",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55839697",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55839697",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50578256",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50578256",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50578256",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50578256",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50578256",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50578256",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50578256",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50578256",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50578256",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50578256",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58929024",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58929024",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58929024",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58929024",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58929024",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58929024",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58929024",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58929024",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58929024",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58929024",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52368033",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52368033",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52368033",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52368033",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52368033",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52368033",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52368033",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52368033",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52368033",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52368033",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59917460",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_59917460",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59917460",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_59917460",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59917460",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_59917460",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59917460",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_59917460",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59917460",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_59917460",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52829344",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52829344",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52829344",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52829344",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52829344",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52829344",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52829344",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52829344",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52829344",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52829344",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_57259018",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_57259018",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57259018",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_57259018",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_57259018",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_57259018",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_57259018",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_57259018",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_57259018",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_57259018",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55549949",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55549949",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55549949",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55549949",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55549949",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55549949",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55549949",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55549949",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55549949",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55549949",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51918667",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_51918667",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51918667",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_51918667",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51918667",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_51918667",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51918667",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_51918667",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51918667",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_51918667",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56299001",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_56299001",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56299001",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_56299001",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56299001",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_56299001",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56299001",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_56299001",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56299001",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_56299001",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59458440",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_59458440",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59458440",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_59458440",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59458440",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_59458440",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59458440",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_59458440",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59458440",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_59458440",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52338674",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52338674",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52338674",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52338674",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52338674",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52338674",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52338674",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52338674",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52338674",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52338674",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50979154",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50979154",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50979154",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50979154",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50979154",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50979154",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50979154",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50979154",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50979154",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50979154",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55947891",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55947891",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55947891",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55947891",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55947891",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55947891",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55947891",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55947891",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55947891",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55947891",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50939161",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50939161",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50939161",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50939161",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50939161",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50939161",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50939161",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50939161",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50939161",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50939161",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55008002",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55008002",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55008002",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55008002",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55008002",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55008002",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55008002",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55008002",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55008002",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55008002",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58837927",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58837927",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58837927",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58837927",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58837927",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58837927",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58837927",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58837927",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58837927",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58837927",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52427456",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52427456",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52427456",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52427456",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52427456",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52427456",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52427456",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52427456",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52427456",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52427456",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53768429",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_53768429",
+      "reponse": "✅ Numéro client CC_53768429 enregistré. Que souhaitez-vous consulter ?"
+    },
+    {
+      "client": "CC_53768429",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_53768429",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53768429",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_53768429",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53768429",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_53768429",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53768429",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_53768429",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51768443",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_51768443",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51768443",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_51768443",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51768443",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_51768443",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51768443",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_51768443",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51768443",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_51768443",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58228526",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58228526",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58228526",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58228526",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58228526",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58228526",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58228526",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58228526",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58228526",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58228526",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51738702",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_51738702",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51738702",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_51738702",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_51738702",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_51738702",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_51738702",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_51738702",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_51738702",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_51738702",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59018821",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_59018821",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59018821",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_59018821",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59018821",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_59018821",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59018821",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_59018821",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59018821",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_59018821",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56918421",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_56918421",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56918421",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_56918421",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56918421",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_56918421",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56918421",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_56918421",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56918421",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_56918421",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56109750",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_56109750",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56109750",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_56109750",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56109750",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_56109750",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56109750",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_56109750",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56109750",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_56109750",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53778508",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_53778508",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53778508",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_53778508",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53778508",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_53778508",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53778508",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_53778508",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53778508",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_53778508",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59218717",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_59218717",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59218717",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_59218717",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59218717",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_59218717",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59218717",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_59218717",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59218717",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_59218717",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59177911",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_59177911",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59177911",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_59177911",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_59177911",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_59177911",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_59177911",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_59177911",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_59177911",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_59177911",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52319824",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52319824",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52319824",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52319824",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52319824",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52319824",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52319824",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52319824",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52319824",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52319824",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50898582",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50898582",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50898582",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50898582",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50898582",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50898582",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50898582",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50898582",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50898582",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50898582",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58488645",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58488645",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58488645",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58488645",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58488645",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58488645",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58488645",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58488645",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58488645",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58488645",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58518654",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58518654",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58518654",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58518654",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58518654",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58518654",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58518654",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58518654",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58518654",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58518654",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56069276",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_56069276",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56069276",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_56069276",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56069276",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_56069276",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56069276",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_56069276",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56069276",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_56069276",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58498664",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_58498664",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58498664",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_58498664",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_58498664",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_58498664",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_58498664",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_58498664",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_58498664",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_58498664",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52369762",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52369762",
+      "reponse": "✅ Numéro client CC_52369762 enregistré. Que souhaitez-vous consulter ?"
+    },
+    {
+      "client": "CC_52369762",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52369762",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52369762",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52369762",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52369762",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52369762",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52369762",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52369762",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53698772",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_53698772",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53698772",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_53698772",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53698772",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_53698772",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53698772",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_53698772",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53698772",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_53698772",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50508325",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50508325",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50508325",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50508325",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50508325",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50508325",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50508325",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50508325",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50508325",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50508325",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52967682",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52967682",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52967682",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52967682",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52967682",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52967682",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52967682",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52967682",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52967682",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52967682",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53538659",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_53538659",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53538659",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_53538659",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_53538659",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_53538659",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_53538659",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_53538659",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_53538659",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_53538659",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55879032",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55879032",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55879032",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55879032",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55879032",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55879032",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55879032",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55879032",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55879032",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55879032",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56469029",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_56469029",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56469029",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_56469029",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_56469029",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_56469029",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_56469029",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_56469029",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_56469029",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_56469029",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55058702",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_55058702",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55058702",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_55058702",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_55058702",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_55058702",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_55058702",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_55058702",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_55058702",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_55058702",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50268007",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_50268007",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50268007",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_50268007",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_50268007",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_50268007",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_50268007",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_50268007",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_50268007",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_50268007",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52327524",
+      "type": "offre",
+      "success": true,
+      "message": "quelle est mon offre CC_52327524",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52327524",
+      "type": "recharges",
+      "success": true,
+      "message": "mes recharges CC_52327524",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    },
+    {
+      "client": "CC_52327524",
+      "type": "appels",
+      "success": true,
+      "message": "mes appels CC_52327524",
+      "reponse": "Je ne suis pas sûr de comprendre. Pouvez-vous préciser votre demande ?"
+    },
+    {
+      "client": "CC_52327524",
+      "type": "internet",
+      "success": true,
+      "message": "ma consommation internet CC_52327524",
+      "reponse": "Je n'ai pas bien compris votre demande. Pouvez-vous reformuler ?"
+    },
+    {
+      "client": "CC_52327524",
+      "type": "cout",
+      "success": true,
+      "message": "mon cout total CC_52327524",
+      "reponse": "Désolé, je n'ai pas saisi votre demande. Pouvez-vous la reformuler ?"
+    }
+  ],
+  "par_type": {
+    "offre": {
+      "success": 50,
+      "total": 50
+    },
+    "recharges": {
+      "success": 50,
+      "total": 50
+    },
+    "appels": {
+      "success": 50,
+      "total": 50
+    },
+    "internet": {
+      "success": 50,
+      "total": 50
+    },
+    "cout": {
+      "success": 50,
+      "total": 50
+    }
+  }
+}

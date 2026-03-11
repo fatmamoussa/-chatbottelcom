@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TT Assistant — Tunisie Telecom</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #1a6ff0;
+  --blue-light: #4d9fff;
+  --blue-soft: #e8f0fe;
+  --blue-bg: #f0f7ff;
+  --bg: #f8fafd;
+  --surface: #ffffff;
+  --surface2: #f1f5f9;
+  --surface3: #e9eef4;
+  --border: rgba(0,0,0,0.08);
+  --border-blue: rgba(26,111,240,0.2);
+  --text: #1a2639;
+  --text-muted: #5b687b;
+  --text-soft: #334155;
+  --shadow: 0 8px 30px rgba(0,0,0,0.04);
+  --green: #00c853;
+  --orange: #ff9800;
+  --red: #f44336;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg-glow {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 10% 20%, rgba(26,111,240,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 400px at 90% 80%, rgba(26,111,240,0.02) 0%, transparent 60%);
+}
+.bg-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(26,111,240,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,111,240,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* NAV */
+.topnav {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 64px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  flex-shrink: 0;
+}
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.nav-logo {
+  width: 32px; height: 32px; object-fit: contain;
+  border-radius: 8px; border: 1px solid var(--border); background: white;
+}
+.nav-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
+.nav-title span { color: var(--blue); }
+.nav-tabs { display: flex; gap: 4px; }
+.nav-tab {
+  padding: 6px 14px; border-radius: 8px; font-size: 12px;
+  color: var(--text-muted); cursor: pointer; transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.nav-tab:hover { color: var(--blue); background: var(--surface2); border-color: var(--border); }
+.nav-tab.active { color: var(--blue); background: var(--blue-soft); border-color: var(--border-blue); }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.status-badge {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border-radius: 20px;
+  background: var(--blue-soft); border: 1px solid var(--border-blue);
+  font-size: 11px; color: var(--blue);
+}
+.status-dot {
+  width: 6px; height: 6px; background: var(--green);
+  border-radius: 50%; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.85); }
+}
+
+/* PAGES */
+.page { display: none; }
+.page.active { display: flex; }
+
+/* CHAT LAYOUT */
+#page-chat {
+  position: relative; z-index: 1; flex: 1;
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 20px; padding: 24px;
+  max-width: 1440px; width: 100%; margin: 0 auto;
+  height: calc(100vh - 64px); overflow: hidden;
+}
+
+/* DASHBOARD LAYOUT */
+#page-dashboard {
+  position: relative; z-index: 1; flex: 1;
+  flex-direction: column;
+  padding: 24px;
+  max-width: 1440px; width: 100%; margin: 0 auto;
+  height: calc(100vh - 64px); overflow-y: auto;
+  gap: 20px;
+}
+#page-dashboard::-webkit-scrollbar { width: 4px; }
+#page-dashboard::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* CARDS */
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px;
+  box-shadow: var(--shadow);
+}
+.card-title {
+  font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+
+/* LEFT SIDEBAR */
+.sidebar-left { display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+.sidebar-left::-webkit-scrollbar { width: 0; }
+
+.profile-avatar {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; margin-bottom: 10px;
+  box-shadow: 0 8px 20px rgba(26,111,240,0.15);
+}
+.profile-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px; margin-bottom: 2px; color: var(--text); }
+.profile-id { font-size: 10px; color: var(--text-muted); font-family: monospace; margin-bottom: 10px; }
+.profile-badge {
+  display: inline-block; padding: 3px 8px; border-radius: 5px;
+  font-size: 10px; font-weight: 600;
+  background: var(--blue-soft); color: var(--blue);
+  border: 1px solid var(--border-blue); margin-bottom: 10px;
+}
+.profile-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 11px;
+}
+.profile-row:last-child { border-bottom: none; }
+.profile-row-label { color: var(--text-muted); }
+.profile-row-value { color: var(--text); font-weight: 500; }
+
+.action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.action-btn {
+  padding: 10px 6px; border-radius: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.2s; text-align: center;
+  font-size: 10px; color: var(--text-soft);
+}
+.action-btn:hover {
+  background: var(--blue-soft); border-color: var(--border-blue);
+  color: var(--blue); transform: translateY(-2px);
+}
+.action-btn .icon { font-size: 16px; display: block; margin-bottom: 4px; }
+
+/* CHAT PANEL */
+.chat-panel {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.chat-header {
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0; background: white;
+}
+.chat-header-left { display: flex; align-items: center; gap: 10px; }
+.chat-avatar {
+  width: 36px; height: 36px; border-radius: 10px;
+  object-fit: contain; background: white; padding: 2px;
+  border: 1px solid var(--border);
+}
+.chat-bot-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: var(--text); }
+.chat-bot-sub { font-size: 10px; color: var(--text-muted); margin-top: 1px; display: flex; align-items: center; gap: 4px; }
+.chat-actions { display: flex; gap: 6px; }
+.icon-btn {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: var(--surface2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-muted); font-size: 13px; transition: all 0.2s;
+}
+.icon-btn:hover { background: var(--blue-soft); color: var(--blue); border-color: var(--border-blue); }
+
+.messages {
+  flex: 1; overflow-y: auto; padding: 20px;
+  display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth;
+}
+.messages::-webkit-scrollbar { width: 4px; }
+.messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.date-sep {
+  text-align: center; font-size: 10px; color: var(--text-muted);
+  display: flex; align-items: center; gap: 10px;
+}
+.date-sep::before, .date-sep::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.msg-row {
+  display: flex; gap: 8px; align-items: flex-end;
+  animation: fadeUp 0.25s ease forwards; opacity: 0; transform: translateY(8px);
+}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+.msg-row.user { flex-direction: row-reverse; }
+
+.msg-av {
+  width: 28px; height: 28px; border-radius: 8px;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+}
+.msg-av.bot { background: none; border: none; padding: 0; }
+.msg-av.bot img { width: 28px; height: 28px; border-radius: 8px; object-fit: contain; background: white; border: 1px solid var(--border); }
+.msg-av.user { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
+
+.msg-c { max-width: 70%; }
+.bubble {
+  padding: 9px 14px; border-radius: 14px;
+  font-size: 12px; line-height: 1.5;
+}
+.bubble.bot { background: var(--surface2); border: 1px solid var(--border); border-bottom-left-radius: 4px; color: var(--text); }
+.bubble.user {
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  border-bottom-right-radius: 4px; color: white;
+  box-shadow: 0 4px 16px rgba(26,111,240,0.15);
+}
+.msg-time { font-size: 9px; color: var(--text-muted); margin-top: 3px; padding: 0 3px; }
+.msg-row.user .msg-time { text-align: right; }
+
+.typing-b { display: flex; gap: 4px; align-items: center; padding: 9px 14px; }
+.typing-b span { width: 6px; height: 6px; background: var(--text-muted); border-radius: 50%; animation: bop 1.2s infinite; }
+.typing-b span:nth-child(2) { animation-delay: 0.2s; }
+.typing-b span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bop { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-5px); } }
+
+.quick-wrap {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 0 20px 12px 48px;
+  animation: fadeUp 0.25s ease 0.1s forwards; opacity: 0;
+}
+.qr-btn {
+  padding: 5px 11px; border-radius: 18px;
+  border: 1px solid var(--border-blue); background: white;
+  color: var(--blue); font-size: 11px; font-family: 'Inter', sans-serif;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.qr-btn:hover { background: var(--blue-soft); transform: translateY(-1px); border-color: var(--blue); }
+
+.chat-input-area { padding: 12px 20px 16px; border-top: 1px solid var(--border); flex-shrink: 0; background: white; }
+.input-wrap {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 12px; padding: 4px 4px 4px 16px; transition: all 0.2s;
+}
+.input-wrap:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,111,240,0.1); }
+.input-wrap input {
+  flex: 1; background: none; border: none; outline: none;
+  color: var(--text); font-family: 'Inter', sans-serif; font-size: 13px; padding: 6px 0;
+}
+.input-wrap input::placeholder { color: var(--text-muted); font-size: 12px; }
+.send-btn {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-light));
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; box-shadow: 0 4px 12px rgba(26,111,240,0.2);
+}
+.send-btn:hover { transform: scale(1.05); }
+.send-btn:active { transform: scale(0.95); }
+.send-btn svg { width: 14px; height: 14px; fill: white; }
+
+/* RIGHT SIDEBAR */
+.sidebar-right { display: flex; flex-direction: column; gap: 16px; overflow-y: auto; }
+.sidebar-right::-webkit-scrollbar { width: 0; }
+
+.stat-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 10px; border-radius: 10px;
+  background: white; border: 1px solid var(--border);
+  margin-bottom: 6px; transition: all 0.2s; cursor: pointer;
+}
+.stat-item:last-child { margin-bottom: 0; }
+.stat-item:hover { border-color: var(--blue); background: var(--blue-soft); }
+.stat-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: var(--blue-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.stat-label { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; }
+.stat-value { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; color: var(--blue); }
+
+.history-item {
+  padding: 8px 10px; border-radius: 8px;
+  background: white; border: 1px solid var(--border);
+  margin-bottom: 5px; cursor: pointer; transition: all 0.2s;
+}
+.history-item:last-child { margin-bottom: 0; }
+.history-item:hover { border-color: var(--blue); background: var(--blue-soft); }
+.history-q { font-size: 11px; color: var(--text); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.history-time { font-size: 9px; color: var(--text-muted); }
+
+/* ==============================
+   DASHBOARD
+   ============================== */
+.dash-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.kpi-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px 20px;
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.kpi-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light));
+}
+.kpi-icon { font-size: 22px; margin-bottom: 8px; }
+.kpi-value { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 26px; color: var(--blue); margin-bottom: 2px; }
+.kpi-label { font-size: 11px; color: var(--text-muted); }
+.kpi-sub { font-size: 10px; color: var(--green); margin-top: 4px; font-weight: 600; }
+
+.dash-charts-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.dash-charts-row3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.chart-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 18px;
+  box-shadow: var(--shadow);
+}
+.chart-card canvas { width: 100% !important; }
+.chart-title {
+  font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--text-muted); margin-bottom: 14px;
+}
+
+.perf-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.perf-table th {
+  background: var(--blue-soft); color: var(--blue);
+  padding: 8px 10px; text-align: left; font-weight: 600;
+  border-bottom: 2px solid var(--border-blue);
+}
+.perf-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text); }
+.perf-table tr:last-child td { border-bottom: none; }
+.perf-table tr:hover td { background: var(--blue-soft); }
+.badge-good { background: #e8f5e9; color: #2e7d32; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.badge-warn { background: #fff3e0; color: #e65100; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+.badge-blue { background: var(--blue-soft); color: var(--blue); padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  #page-chat { grid-template-columns: 220px 1fr; }
+  .sidebar-right { display: none; }
+  .dash-kpi-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  #page-chat { grid-template-columns: 1fr; padding: 12px; height: calc(100vh - 56px); }
+  .sidebar-left { display: none; }
+  .topnav { padding: 0 16px; height: 56px; }
+  .nav-tabs { display: none; }
+  .dash-kpi-row { grid-template-columns: 1fr 1fr; }
+  .dash-charts-row, .dash-charts-row3 { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="topnav">
+  <div class="nav-brand">
+    <img src="images/Tunisie-Telecom.jpg" alt="Tunisie Telecom" class="nav-logo"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+    >
+    <div style="display:none;width:32px;height:32px;border-radius:8px;background:var(--blue);align-items:center;justify-content:center;color:white;font-weight:800;font-size:13px;">TT</div>
+    <div class="nav-title">Tunisie <span>Telecom</span></div>
+  </div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showPage('chat', this)">💬 Assistant</div>
+    <div class="nav-tab" onclick="showPage('dashboard', this)">📊 Tableau de bord</div>
+  </div>
+  <div class="nav-right">
+    <div class="status-badge">
+      <div class="status-dot" id="serverDot"></div>
+      <span id="serverStatus">Connexion...</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE CHAT ===== -->
+<div id="page-chat" class="page active">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar-left">
+    <div class="card">
+      <div class="card-title">👤 PROFIL CLIENT</div>
+      <div class="profile-avatar">👤</div>
+      <div class="profile-name" id="profileName">Client</div>
+      <div class="profile-id" id="profileId">Entrez votre numéro client</div>
+      <div class="profile-badge" id="profileBadge">Non identifié</div>
+
+      <div class="profile-row">
+        <span class="profile-row-label">Offre</span>
+        <span class="profile-row-value" id="profileOffre">—</span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-row-label">Statut</span>
+        <span class="profile-row-value" id="profileStatut">—</span>
+      </div>
+      <div class="profile-row">
+        <span class="profile-row-label">Segment</span>
+        <span class="profile-row-value" id="profileSegment">—</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ ACTIONS RAPIDES</div>
+      <div class="action-grid">
+        <div class="action-btn" onclick="sendQuick('Mon offre')"><span class="icon">📦</span>Mon offre</div>
+        <div class="action-btn" onclick="sendQuick('Mes recharges')"><span class="icon">💳</span>Recharges</div>
+        <div class="action-btn" onclick="sendQuick('Mes appels')"><span class="icon">📞</span>Appels</div>
+        <div class="action-btn" onclick="sendQuick('Ma consommation internet')"><span class="icon">🌐</span>Internet</div>
+        <div class="action-btn" onclick="sendQuick('Mes forfaits')"><span class="icon">📱</span>Forfaits</div>
+        <div class="action-btn" onclick="sendQuick('Mon coût total')"><span class="icon">💰</span>Coût total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAT PANEL -->
+  <div class="chat-panel">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <img src="images/Tunisie-Telecom.jpg" alt="Assistant TT" class="chat-avatar"
+             onerror="this.style.display='none'">
+        <div>
+          <div class="chat-bot-name">Assistant Tunisie Telecom</div>
+          <div class="chat-bot-sub"><span class="status-dot"></span>En ligne · réponse instantanée</div>
+        </div>
+      </div>
+      <div class="chat-actions">
+        <div class="icon-btn" onclick="clearChat()" title="Nouvelle conversation">↺</div>
+        <div class="icon-btn" onclick="downloadChat()" title="Télécharger la conversation">⬇</div>
+      </div>
+    </div>
+
+    <div class="messages" id="messages">
+      <div class="date-sep">Aujourd'hui</div>
+      <div class="msg-row bot">
+        <div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\'>TT</div>'"></div>
+        <div class="msg-c">
+          <div class="bubble bot">
+            Bonjour ! 👋 Bienvenue sur l'assistant <strong>Tunisie Telecom</strong>.<br><br>
+            Pour consulter vos informations, veuillez entrer votre <strong>numéro client</strong><br>
+            <span style="font-family:monospace; color:var(--blue);">exemple : CC_52099260</span>
+          </div>
+          <div class="msg-time">maintenant</div>
+        </div>
+      </div>
+      <div class="quick-wrap" id="quickReplies">
+        <button class="qr-btn" onclick="sendQuick('Mon offre')">📦 Mon offre</button>
+        <button class="qr-btn" onclick="sendQuick('Mes recharges')">💳 Recharges</button>
+        <button class="qr-btn" onclick="sendQuick('Mes appels')">📞 Appels</button>
+        <button class="qr-btn" onclick="sendQuick('Ma consommation internet')">🌐 Internet</button>
+        <button class="qr-btn" onclick="sendQuick('Mon coût total')">💰 Coût total</button>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <div class="input-wrap">
+        <input type="text" id="userInput"
+          placeholder="Tapez votre message ou CC_xxxxxxx..."
+          onkeydown="if(event.key==='Enter') sendMessage()"
+          autocomplete="off" />
+        <button class="send-btn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar-right">
+    <div class="card">
+      <div class="card-title">📊 STATISTIQUES SESSION</div>
+      <div class="stat-item" onclick="sendQuick('Mes recharges')">
+        <div class="stat-icon">💳</div>
+        <div>
+          <div class="stat-label">Recharges</div>
+          <div class="stat-value" id="statRecharges">—</div>
+        </div>
+      </div>
+      <div class="stat-item" onclick="sendQuick('Mes appels')">
+        <div class="stat-icon">📞</div>
+        <div>
+          <div class="stat-label">Appels</div>
+          <div class="stat-value" id="statAppels">—</div>
+        </div>
+      </div>
+      <div class="stat-item" onclick="sendQuick('Ma consommation internet')">
+        <div class="stat-icon">🌐</div>
+        <div>
+          <div class="stat-label">Internet</div>
+          <div class="stat-value" id="statInternet">—</div>
+        </div>
+      </div>
+      <div class="stat-item" onclick="sendQuick('Mon coût total')">
+        <div class="stat-icon">💰</div>
+        <div>
+          <div class="stat-label">Coût total</div>
+          <div class="stat-value" id="statCout">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📋 HISTORIQUE</div>
+      <div id="historyList">
+        <div style="font-size:11px; color:var(--text-muted); text-align:center; padding:14px 0;">Aucune conversation</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">ℹ️ MODÈLE NLU</div>
+      <div style="font-size:11px; color:var(--text-soft); line-height:1.7;">
+        <div>🧠 <strong>SVM + TF-IDF</strong></div>
+        <div>🦙 Fallback <strong>Ollama</strong></div>
+        <div>🎯 Accuracy : <strong style="color:var(--blue)">92%</strong></div>
+        <div>📚 Intentions : <strong>55</strong></div>
+        <div>📝 Exemples : <strong>5 171</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE DASHBOARD ===== -->
+<div id="page-dashboard" class="page">
+
+  <!-- KPI ROW -->
+  <div class="dash-kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-icon">🎯</div>
+      <div class="kpi-value">92%</div>
+      <div class="kpi-label">Accuracy Test</div>
+      <div class="kpi-sub">↑ Validation croisée 5-fold</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🧠</div>
+      <div class="kpi-value">55</div>
+      <div class="kpi-label">Intentions NLU</div>
+      <div class="kpi-sub">↑ Couverture complète</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">📝</div>
+      <div class="kpi-value">5 171</div>
+      <div class="kpi-label">Exemples d'entraînement</div>
+      <div class="kpi-sub">↑ Après augmentation</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">📁</div>
+      <div class="kpi-value">2.4M</div>
+      <div class="kpi-label">Lignes données clients</div>
+      <div class="kpi-sub">5 fichiers CSV réels</div>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW 1 -->
+  <div class="dash-charts-row">
+    <div class="chart-card">
+      <div class="chart-title">🎯 Performance Globale — Train / Val / Test</div>
+      <canvas id="chartPerf" height="200"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">🔄 Validation Croisée 5-Fold</div>
+      <canvas id="chartCV" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- CHARTS ROW 2 -->
+  <div class="dash-charts-row">
+    <div class="chart-card">
+      <div class="chart-title">📁 Volume des Données Clients</div>
+      <canvas id="chartData" height="200"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">📈 Évolution du Dataset</div>
+      <canvas id="chartDataset" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="chart-card" style="margin-bottom:20px;">
+    <div class="chart-title">📊 Performance par Intention (extrait)</div>
+    <table class="perf-table">
+      <thead>
+        <tr>
+          <th>Intention</th>
+          <th>Précision</th>
+          <th>Rappel</th>
+          <th>F1-Score</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>saluer</td><td>100%</td><td>100%</td><td>100%</td><td><span class="badge-good">Excellent</span></td></tr>
+        <tr><td>donner_id_client</td><td>100%</td><td>100%</td><td>100%</td><td><span class="badge-good">Excellent</span></td></tr>
+        <tr><td>voir_nbr_recharge</td><td>95%</td><td>90%</td><td>93%</td><td><span class="badge-good">Bon</span></td></tr>
+        <tr><td>voir_montant_recharge</td><td>88%</td><td>88%</td><td>88%</td><td><span class="badge-blue">Correct</span></td></tr>
+        <tr><td>voir_nbr_appel</td><td>93%</td><td>93%</td><td>93%</td><td><span class="badge-good">Bon</span></td></tr>
+        <tr><td>cout_total</td><td>94%</td><td>94%</td><td>94%</td><td><span class="badge-good">Bon</span></td></tr>
+        <tr><td>forfaits_actives</td><td>65%</td><td>60%</td><td>62%</td><td><span class="badge-warn">À améliorer</span></td></tr>
+        <tr><td>voir_offre_commerciale</td><td>74%</td><td>71%</td><td>72%</td><td><span class="badge-warn">À améliorer</span></td></tr>
+        <tr><td>voir_services_actives</td><td>72%</td><td>70%</td><td>71%</td><td><span class="badge-warn">À améliorer</span></td></tr>
+        <tr><td>au_revoir</td><td>100%</td><td>100%</td><td>100%</td><td><span class="badge-good">Excellent</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- end page-dashboard -->
+
+<script>
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(name, tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  tab.classList.add('active');
+  if (name === 'dashboard') initCharts();
+}
+
+// ============================================================
+// CONFIG
+// ============================================================
+const API_URL = "http://localhost:5005";
+const messagesEl = document.getElementById("messages");
+const inputEl = document.getElementById("userInput");
+let sessionId = "user_" + Math.random().toString(36).substr(2, 9);
+let history = [];
+let chartsInited = false;
+
+function getTime() {
+  return new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+}
+
+// ============================================================
+// CHAT
+// ============================================================
+function addMessage(text, sender) {
+  const qr = document.getElementById("quickReplies");
+  if (sender === "user" && qr) qr.remove();
+  if (sender === "user") { history.push({ q: text, time: getTime() }); updateHistory(); }
+
+  const row = document.createElement("div");
+  row.className = `msg-row ${sender}`;
+
+  const av = document.createElement("div");
+  av.className = `msg-av ${sender}`;
+  if (sender === "bot") {
+    av.innerHTML = `<img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'">`;
+  } else {
+    av.textContent = "👤";
+  }
+
+  const c = document.createElement("div"); c.className = "msg-c";
+  const b = document.createElement("div"); b.className = `bubble ${sender}`;
+  b.innerHTML = text.replace(/\n/g, '<br>');
+  const t = document.createElement("div"); t.className = "msg-time"; t.textContent = getTime();
+  c.appendChild(b); c.appendChild(t);
+  row.appendChild(av); row.appendChild(c);
+  messagesEl.appendChild(row);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+
+  if (sender === "bot") extractStats(text);
+}
+
+function addTyping() {
+  const row = document.createElement("div");
+  row.className = "msg-row bot"; row.id = "typing";
+  row.innerHTML = `<div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div><div class="msg-c"><div class="bubble bot typing-b"><span></span><span></span><span></span></div></div>`;
+  messagesEl.appendChild(row);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+}
+function removeTyping() { const t = document.getElementById("typing"); if (t) t.remove(); }
+
+// ============================================================
+// EXTRACTION STATS & PROFIL
+// ============================================================
+function extractStats(text) {
+  // Recharges
+  const mR = text.match(/(\d+[\.,]\d+)\s*DT/);
+  if (mR && text.toLowerCase().includes("recharg")) {
+    document.getElementById("statRecharges").textContent = mR[1] + " DT";
+  }
+  // Appels
+  const mA = text.match(/(\d+)\s*appels?/i);
+  if (mA) document.getElementById("statAppels").textContent = mA[1] + " appels";
+  // Coût total
+  const mC = text.match(/(?:TOTAL|coût total).*?(\d+[\.,]\d+)\s*DT/i);
+  if (mC) document.getElementById("statCout").textContent = mC[1] + " DT";
+  // Internet
+  const mI = text.match(/(\d+[\.,]?\d*\s*(?:Mo|Go|MB|GB))/i);
+  if (mI) document.getElementById("statInternet").textContent = mI[1];
+
+  // Profil — offre
+  const mOffre = text.match(/[Oo]ffre\s*:?\s*(.{3,40}?)(?:\n|<|$)/);
+  if (mOffre) document.getElementById("profileOffre").textContent = mOffre[1].trim();
+  // Profil — statut
+  const mStat = text.match(/[Ss]tatut\s*:?\s*(\w+)/);
+  if (mStat) document.getElementById("profileStatut").textContent = mStat[1];
+  // Profil — segment
+  const mSeg = text.match(/[Ss]egment\s*:?\s*(.{2,30}?)(?:\n|<|$)/);
+  if (mSeg) document.getElementById("profileSegment").textContent = mSeg[1].trim();
+}
+
+function updateProfile(ccNum) {
+  document.getElementById("profileId").textContent = ccNum.toUpperCase();
+  document.getElementById("profileName").textContent = "Client identifié ✓";
+  document.getElementById("profileBadge").textContent = "Identifié";
+  document.getElementById("profileBadge").style.background = "#e8f5e9";
+  document.getElementById("profileBadge").style.color = "#2e7d32";
+  document.getElementById("profileBadge").style.borderColor = "#a5d6a7";
+}
+
+function updateHistory() {
+  const el = document.getElementById("historyList");
+  if (!history.length) return;
+  el.innerHTML = history.slice(-5).reverse().map(h =>
+    `<div class="history-item" onclick="sendQuick('${h.q.replace(/'/g, "\\'")}')">
+      <div class="history-q">${h.q}</div>
+      <div class="history-time">${h.time}</div>
+    </div>`
+  ).join('');
+}
+
+// ============================================================
+// SEND
+// ============================================================
+async function sendMessage() {
+  const text = inputEl.value.trim();
+  if (!text) return;
+  addMessage(text, "user");
+  inputEl.value = "";
+
+  // Numéro client détecté
+  if (text.match(/CC_\d+/i)) updateProfile(text.match(/CC_\d+/i)[0]);
+
+  addTyping();
+  try {
+    const res = await fetch(`${API_URL}/webhook`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sender: sessionId, message: text })
+    });
+    const data = await res.json();
+    removeTyping();
+    if (data && data.length > 0) {
+      data.forEach((msg, i) => {
+        if (msg.text) setTimeout(() => addMessage(msg.text, "bot"), i * 120);
+      });
+    } else {
+      addMessage("Je n'ai pas compris votre demande. Pouvez-vous reformuler ?", "bot");
+    }
+  } catch (e) {
+    removeTyping();
+    addMessage("⚠️ Serveur inaccessible.\nVérifiez que <strong>api.py</strong> est lancé :<br><code style='font-size:11px;background:#f1f5f9;padding:2px 6px;border-radius:4px;'>python api.py</code>", "bot");
+  }
+}
+
+function sendQuick(text) { inputEl.value = text; sendMessage(); }
+
+// ============================================================
+// CLEAR & DOWNLOAD
+// ============================================================
+function clearChat() {
+  sessionId = "user_" + Math.random().toString(36).substr(2, 9);
+  history = [];
+  // Reset profil
+  document.getElementById("profileName").textContent = "Client";
+  document.getElementById("profileId").textContent = "Entrez votre numéro client";
+  document.getElementById("profileBadge").textContent = "Non identifié";
+  document.getElementById("profileBadge").style.background = "";
+  document.getElementById("profileBadge").style.color = "";
+  document.getElementById("profileBadge").style.borderColor = "";
+  document.getElementById("profileOffre").textContent = "—";
+  document.getElementById("profileStatut").textContent = "—";
+  document.getElementById("profileSegment").textContent = "—";
+  // Reset stats
+  ["statRecharges","statAppels","statInternet","statCout"].forEach(id => {
+    document.getElementById(id).textContent = "—";
+  });
+  document.getElementById("historyList").innerHTML = '<div style="font-size:11px;color:var(--text-muted);text-align:center;padding:14px 0;">Aucune conversation</div>';
+  // Reset messages
+  messagesEl.innerHTML = `
+    <div class="date-sep">Aujourd'hui</div>
+    <div class="msg-row bot">
+      <div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div>
+      <div class="msg-c">
+        <div class="bubble bot">
+          Bonjour ! 👋 Bienvenue sur l'assistant <strong>Tunisie Telecom</strong>.<br><br>
+          Pour consulter vos informations, veuillez entrer votre <strong>numéro client</strong><br>
+          <span style="font-family:monospace;color:var(--blue);">exemple : CC_52099260</span>
+        </div>
+        <div class="msg-time">${getTime()}</div>
+      </div>
+    </div>
+    <div class="quick-wrap" id="quickReplies">
+      <button class="qr-btn" onclick="sendQuick('Mon offre')">📦 Mon offre</button>
+      <button class="qr-btn" onclick="sendQuick('Mes recharges')">💳 Recharges</button>
+      <button class="qr-btn" onclick="sendQuick('Mes appels')">📞 Appels</button>
+      <button class="qr-btn" onclick="sendQuick('Ma consommation internet')">🌐 Internet</button>
+      <button class="qr-btn" onclick="sendQuick('Mon coût total')">💰 Coût total</button>
+    </div>`;
+}
+
+function downloadChat() {
+  const rows = document.querySelectorAll('.msg-row');
+  if (!rows.length) { alert("Aucune conversation à télécharger"); return; }
+  let txt = "=== CONVERSATION TUNISIE TELECOM ===\n";
+  txt += `Date: ${new Date().toLocaleString('fr-FR')}\nSession: ${sessionId}\n${"=".repeat(40)}\n\n`;
+  rows.forEach(r => {
+    const sender = r.classList.contains('user') ? '👤 VOUS' : '🤖 ASSISTANT';
+    const bubble = r.querySelector('.bubble');
+    const time = r.querySelector('.msg-time');
+    if (bubble && !bubble.classList.contains('typing-b')) {
+      txt += `[${time ? time.innerText : ''}] ${sender}: ${bubble.innerText.replace(/\n/g,' ')}\n`;
+    }
+  });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([txt], {type:'text/plain;charset=utf-8'}));
+  a.download = `conversation_TT_${new Date().toISOString().slice(0,10)}.txt`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+// ============================================================
+// SERVER STATUS
+// ============================================================
+async function checkServer() {
+  const dot = document.getElementById("serverDot");
+  const status = document.getElementById("serverStatus");
+  try {
+    await fetch(`${API_URL}/api/health`, { signal: AbortSignal.timeout(3000) });
+    dot.style.background = "var(--green)";
+    status.textContent = "Assistant connecté";
+  } catch {
+    dot.style.background = "var(--red)";
+    status.textContent = "Serveur hors ligne";
+  }
+}
+
+// ============================================================
+// CHARTS (Dashboard)
+// ============================================================
+function initCharts() {
+  if (chartsInited) return;
+  chartsInited = true;
+
+  const blue = '#1a6ff0', blueL = '#4d9fff', blueSoft = 'rgba(26,111,240,0.1)';
+
+  // 1. Performance globale
+  new Chart(document.getElementById('chartPerf'), {
+    type: 'bar',
+    data: {
+      labels: ['Train', 'Validation', 'Test'],
+      datasets: [{
+        label: 'Accuracy (%)',
+        data: [93.67, 91.75, 90.34],
+        backgroundColor: [blueL, '#ff9800', '#4caf50'],
+        borderRadius: 8, borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true, plugins: { legend: { display: false } },
+      scales: {
+        y: { min: 85, max: 100, grid: { color: 'rgba(0,0,0,0.04)' },
+             ticks: { callback: v => v + '%' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // 2. Cross-validation
+  new Chart(document.getElementById('chartCV'), {
+    type: 'line',
+    data: {
+      labels: ['Fold 1','Fold 2','Fold 3','Fold 4','Fold 5'],
+      datasets: [{
+        label: 'Accuracy (%)',
+        data: [91.88, 92.84, 91.78, 90.52, 92.46],
+        borderColor: blue, backgroundColor: blueSoft,
+        borderWidth: 3, pointBackgroundColor: blue,
+        pointRadius: 6, fill: true, tension: 0.3,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false },
+        annotation: { annotations: {
+          line1: { type: 'line', yMin: 91.90, yMax: 91.90, borderColor: 'red', borderWidth: 2, borderDash: [5,5] }
+        }}
+      },
+      scales: {
+        y: { min: 88, max: 95, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(0,0,0,0.04)' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+
+  // 3. Volume données
+  new Chart(document.getElementById('chartData'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Parc (50K)', 'Activations (224K)', 'Data (151K)', 'Refil (301K)', 'Trafic (1.7M)'],
+      datasets: [{
+        data: [50000, 224518, 151687, 301962, 1757223],
+        backgroundColor: ['#4d9fff','#ff6b4a','#4caf50','#ff9800','#9c27b0'],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 12 } } }
+    }
+  });
+
+  // 4. Évolution dataset
+  new Chart(document.getElementById('chartDataset'), {
+    type: 'line',
+    data: {
+      labels: ['V1','V2','V3','V4','V5'],
+      datasets: [
+        {
+          label: 'Exemples',
+          data: [125, 302, 450, 744, 5171],
+          borderColor: blue, backgroundColor: blueSoft,
+          borderWidth: 3, pointBackgroundColor: blue,
+          pointRadius: 5, fill: true, tension: 0.3, yAxisID: 'y',
+        },
+        {
+          label: 'Intentions',
+          data: [13, 25, 35, 45, 55],
+          borderColor: '#ff9800', backgroundColor: 'rgba(255,152,0,0.05)',
+          borderWidth: 2, pointBackgroundColor: '#ff9800',
+          pointRadius: 5, fill: false, tension: 0.3, yAxisID: 'y1',
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { font: { size: 10 }, boxWidth: 12 } } },
+      scales: {
+        y: { position: 'left', grid: { color: 'rgba(0,0,0,0.04)' }, title: { display: true, text: 'Exemples' } },
+        y1: { position: 'right', grid: { drawOnChartArea: false }, title: { display: true, text: 'Intentions' } },
+        x: { grid: { display: false } }
+      }
+    }
+  });
+}
+
+// Init
+inputEl.focus();
+checkServer();
+setInterval(checkServer, 30000);
+</script>
+</body>
+</html>

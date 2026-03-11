@@ -1,0 +1,1210 @@
+[
+  {
+    "text": "bonjour",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6155200004577637
+    }
+  },
+  {
+    "text": "bonsoir",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.8639538288116455
+    }
+  },
+  {
+    "text": "salut",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9999721050262451
+    }
+  },
+  {
+    "text": "bonjour, je voudrais de l'aide",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.35959285497665405
+    }
+  },
+  {
+    "text": "hello",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9999990463256836
+    }
+  },
+  {
+    "text": "bonne journée",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3621577322483063
+    }
+  },
+  {
+    "text": "bonjour, j'ai besoin d'aide",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6509569883346558
+    }
+  },
+  {
+    "text": "salut, j'ai une question",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.7807389497756958
+    }
+  },
+  {
+    "text": "bonjour cher service client",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9378021359443665
+    }
+  },
+  {
+    "text": "hey bonjour",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9994254112243652
+    }
+  },
+  {
+    "text": "bonjour comment ça va",
+    "intent": "saluer",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5208495259284973
+    }
+  },
+  {
+    "text": "au revoir",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5148159861564636
+    }
+  },
+  {
+    "text": "bonne journée",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3621577322483063
+    }
+  },
+  {
+    "text": "merci au revoir",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9164732694625854
+    }
+  },
+  {
+    "text": "à bientôt",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.8100911974906921
+    }
+  },
+  {
+    "text": "bonne soirée",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.37056493759155273
+    }
+  },
+  {
+    "text": "c'est tout merci",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.28010326623916626
+    }
+  },
+  {
+    "text": "je n'ai plus de questions",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.49877864122390747
+    }
+  },
+  {
+    "text": "ok merci c'est bon",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.42298150062561035
+    }
+  },
+  {
+    "text": "on a terminé merci",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9698821902275085
+    }
+  },
+  {
+    "text": "bye",
+    "intent": "au_revoir",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "oui",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5457422137260437
+    }
+  },
+  {
+    "text": "oui c'est ça",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.35472390055656433
+    }
+  },
+  {
+    "text": "exactement",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9817870855331421
+    }
+  },
+  {
+    "text": "tout à fait",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.5502588152885437
+    }
+  },
+  {
+    "text": "oui c'est correct",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9995974898338318
+    }
+  },
+  {
+    "text": "c'est bien ça",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.2327461838722229
+    }
+  },
+  {
+    "text": "oui je confirme",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.36508017778396606
+    }
+  },
+  {
+    "text": "parfait oui",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.5628058910369873
+    }
+  },
+  {
+    "text": "oui c'est mon numéro",
+    "intent": "affirmer",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.49910300970077515
+    }
+  },
+  {
+    "text": "non",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9998844861984253
+    }
+  },
+  {
+    "text": "non ce n'est pas ça",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9492974877357483
+    }
+  },
+  {
+    "text": "pas du tout",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.932237446308136
+    }
+  },
+  {
+    "text": "non merci",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9848117828369141
+    }
+  },
+  {
+    "text": "ce n'est pas correct",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9976106882095337
+    }
+  },
+  {
+    "text": "jamais",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8640105128288269
+    }
+  },
+  {
+    "text": "non ce n'est pas mon numéro",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.9830161929130554
+    }
+  },
+  {
+    "text": "non j'ai pas fait ça",
+    "intent": "nier",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.844434916973114
+    }
+  },
+  {
+    "text": "merci",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9967143535614014
+    }
+  },
+  {
+    "text": "merci beaucoup",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.660446047782898
+    }
+  },
+  {
+    "text": "je vous remercie",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9573528170585632
+    }
+  },
+  {
+    "text": "merci pour votre aide",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.46821263432502747
+    }
+  },
+  {
+    "text": "c'est très gentil merci",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4004667103290558
+    }
+  },
+  {
+    "text": "merci pour l'information",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7298686504364014
+    }
+  },
+  {
+    "text": "super merci",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.8160449266433716
+    }
+  },
+  {
+    "text": "ok merci",
+    "intent": "remercier",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7467641830444336
+    }
+  },
+  {
+    "text": "quelle est mon offre actuelle ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.988392174243927
+    }
+  },
+  {
+    "text": "quel est mon abonnement ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8469754457473755
+    }
+  },
+  {
+    "text": "je veux savoir mon offre",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.42544904351234436
+    }
+  },
+  {
+    "text": "sur quelle offre je suis ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.263203889131546
+    }
+  },
+  {
+    "text": "mon forfait actuel c'est quoi ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7041598558425903
+    }
+  },
+  {
+    "text": "dis moi mon offre téléphonique",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9980754852294922
+    }
+  },
+  {
+    "text": "je voudrais connaître mon offre",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6691303849220276
+    }
+  },
+  {
+    "text": "quel est mon contrat ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.40684443712234497
+    }
+  },
+  {
+    "text": "mon abonnement c'est lequel ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9551680684089661
+    }
+  },
+  {
+    "text": "quelle offre j'ai souscrit ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.40872877836227417
+    }
+  },
+  {
+    "text": "je suis sur quelle offre ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.2671357989311218
+    }
+  },
+  {
+    "text": "informations sur mon offre",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8626626133918762
+    }
+  },
+  {
+    "text": "c'est quoi mon plan tarifaire ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5090762376785278
+    }
+  },
+  {
+    "text": "mon offre Tunisie Telecom c'est quoi ?",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8112264275550842
+    }
+  },
+  {
+    "text": "je veux voir mon offre commerciale",
+    "intent": "consulter_offre",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8661298751831055
+    }
+  },
+  {
+    "text": "combien j'ai rechargé ce mois ?",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8601603507995605
+    }
+  },
+  {
+    "text": "mes recharges du mois",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.861492395401001
+    }
+  },
+  {
+    "text": "historique de mes recharges",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8984587788581848
+    }
+  },
+  {
+    "text": "je veux voir mes recharges",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.4921782314777374
+    }
+  },
+  {
+    "text": "combien j'ai rechargé en juillet ?",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9931326508522034
+    }
+  },
+  {
+    "text": "montant total de mes recharges",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8288591504096985
+    }
+  },
+  {
+    "text": "mes dernières recharges",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.640192449092865
+    }
+  },
+  {
+    "text": "j'ai rechargé combien de fois ?",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7817820906639099
+    }
+  },
+  {
+    "text": "quel est mon montant de recharge ?",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9708497524261475
+    }
+  },
+  {
+    "text": "je voudrais voir l'historique de recharge",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7419538497924805
+    }
+  },
+  {
+    "text": "mes recharges ce mois-ci",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7627765536308289
+    }
+  },
+  {
+    "text": "combien de fois j'ai rechargé ?",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7750473618507385
+    }
+  },
+  {
+    "text": "recharges effectuées ce mois",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.45516544580459595
+    }
+  },
+  {
+    "text": "bilan de mes recharges",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6133450865745544
+    }
+  },
+  {
+    "text": "total rechargé ce mois",
+    "intent": "voir_recharges",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9472858309745789
+    }
+  },
+  {
+    "text": "combien d'appels j'ai fait ce mois ?",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.785660445690155
+    }
+  },
+  {
+    "text": "mon historique d'appels",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8787630796432495
+    }
+  },
+  {
+    "text": "je veux voir mes appels",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9536298513412476
+    }
+  },
+  {
+    "text": "nombre d'appels effectués",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.9398203492164612
+    }
+  },
+  {
+    "text": "mes appels du mois",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.809003472328186
+    }
+  },
+  {
+    "text": "durée totale de mes appels",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.4776090085506439
+    }
+  },
+  {
+    "text": "combien de minutes j'ai consommé ?",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7774683237075806
+    }
+  },
+  {
+    "text": "mes appels vers Ooredoo",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9173280596733093
+    }
+  },
+  {
+    "text": "mes appels locaux ce mois",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7788945436477661
+    }
+  },
+  {
+    "text": "je veux consulter mes appels",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.8771494030952454
+    }
+  },
+  {
+    "text": "historique appels et SMS",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6453945636749268
+    }
+  },
+  {
+    "text": "combien de SMS j'ai envoyé ?",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7072659134864807
+    }
+  },
+  {
+    "text": "mes appels internationaux",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.4611419439315796
+    }
+  },
+  {
+    "text": "détail de mes appels",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9943913817405701
+    }
+  },
+  {
+    "text": "mes communications ce mois",
+    "intent": "historique_appels",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.7330729961395264
+    }
+  },
+  {
+    "text": "ma consommation internet ce mois ?",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9755541682243347
+    }
+  },
+  {
+    "text": "combien de données j'ai utilisé ?",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.5567991733551025
+    }
+  },
+  {
+    "text": "mon volume data consommé",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.3584781587123871
+    }
+  },
+  {
+    "text": "je veux voir ma conso data",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9190891981124878
+    }
+  },
+  {
+    "text": "combien de Mo j'ai consommé ?",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6787432432174683
+    }
+  },
+  {
+    "text": "ma consommation 4G ce mois",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6090471744537354
+    }
+  },
+  {
+    "text": "volume internet utilisé",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.878534734249115
+    }
+  },
+  {
+    "text": "mes données mobiles consommées",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9350676536560059
+    }
+  },
+  {
+    "text": "bilan de ma consommation internet",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6584022045135498
+    }
+  },
+  {
+    "text": "combien de Go j'ai utilisé ?",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.966995120048523
+    }
+  },
+  {
+    "text": "ma conso data mobile",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.8886269330978394
+    }
+  },
+  {
+    "text": "trafic internet de ce mois",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9963802695274353
+    }
+  },
+  {
+    "text": "je veux savoir ma consommation internet",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.540165364742279
+    }
+  },
+  {
+    "text": "volume data ce mois",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.7423219084739685
+    }
+  },
+  {
+    "text": "détail consommation internet",
+    "intent": "conso_internet",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8979145884513855
+    }
+  },
+  {
+    "text": "quels forfaits j'ai activé ?",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.48813432455062866
+    }
+  },
+  {
+    "text": "mes forfaits internet activés",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8971030712127686
+    }
+  },
+  {
+    "text": "liste de mes activations",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.4100601077079773
+    }
+  },
+  {
+    "text": "j'ai activé quoi ce mois ?",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6379833817481995
+    }
+  },
+  {
+    "text": "mes abonnements internet actifs",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8886743783950806
+    }
+  },
+  {
+    "text": "forfaits activés ce mois",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7806452512741089
+    }
+  },
+  {
+    "text": "je veux voir mes forfaits activés",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.571961522102356
+    }
+  },
+  {
+    "text": "quelles options j'ai souscrit ?",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.6936375498771667
+    }
+  },
+  {
+    "text": "mes activations USSD",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.8529592156410217
+    }
+  },
+  {
+    "text": "j'ai souscrit quel forfait internet ?",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.4689579904079437
+    }
+  },
+  {
+    "text": "mes forfaits du mois",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8867074251174927
+    }
+  },
+  {
+    "text": "activations effectuées ce mois",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.7500004768371582
+    }
+  },
+  {
+    "text": "quels services j'ai activé ?",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.2851436138153076
+    }
+  },
+  {
+    "text": "détail de mes forfaits activés",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.5568485260009766
+    }
+  },
+  {
+    "text": "mes options internet",
+    "intent": "forfaits_actives",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9760619401931763
+    }
+  },
+  {
+    "text": "combien j'ai dépensé ce mois ?",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7593062520027161
+    }
+  },
+  {
+    "text": "ma facture de ce mois",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.6970570683479309
+    }
+  },
+  {
+    "text": "total de mes dépenses",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.46154773235321045
+    }
+  },
+  {
+    "text": "quel est mon coût total ?",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.47868838906288147
+    }
+  },
+  {
+    "text": "combien ça m'a coûté ce mois ?",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.45876842737197876
+    }
+  },
+  {
+    "text": "je veux voir ma dépense totale",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.6327107548713684
+    }
+  },
+  {
+    "text": "bilan financier de ce mois",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.5992544293403625
+    }
+  },
+  {
+    "text": "montant total de ma consommation",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "bot_challenge",
+      "confidence": 0.4690237045288086
+    }
+  },
+  {
+    "text": "combien j'ai payé ce mois ?",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.441337525844574
+    }
+  },
+  {
+    "text": "total appels et internet",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9586852192878723
+    }
+  },
+  {
+    "text": "coût de mes communications",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.9850819110870361
+    }
+  },
+  {
+    "text": "je veux savoir ce que j'ai dépensé",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.6538214087486267
+    }
+  },
+  {
+    "text": "ma dépense mensuelle",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8105905055999756
+    }
+  },
+  {
+    "text": "total consommation en dinars",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.4160362780094147
+    }
+  },
+  {
+    "text": "combien coûte ma consommation ?",
+    "intent": "cout_total",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.5856631994247437
+    }
+  },
+  {
+    "text": "mes informations personnelles",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "mood_great",
+      "confidence": 0.6487878561019897
+    }
+  },
+  {
+    "text": "mon profil client",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9857279658317566
+    }
+  },
+  {
+    "text": "je veux voir mon profil",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7138044238090515
+    }
+  },
+  {
+    "text": "depuis quand je suis client ?",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9373783469200134
+    }
+  },
+  {
+    "text": "ma date d'activation",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.9182448983192444
+    }
+  },
+  {
+    "text": "mon segment client",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9584184288978577
+    }
+  },
+  {
+    "text": "je suis quel type de client ?",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.500607430934906
+    }
+  },
+  {
+    "text": "mes informations de compte",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "affirm",
+      "confidence": 0.8427864909172058
+    }
+  },
+  {
+    "text": "mon statut client",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.8089609742164612
+    }
+  },
+  {
+    "text": "depuis quand j'utilise ce numéro ?",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.9798106551170349
+    }
+  },
+  {
+    "text": "informations sur mon compte",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7475355267524719
+    }
+  },
+  {
+    "text": "mon profil Tunisie Telecom",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.9880097508430481
+    }
+  },
+  {
+    "text": "je veux voir mon dossier client",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "deny",
+      "confidence": 0.3555852174758911
+    }
+  },
+  {
+    "text": "ma date d'inscription",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "mood_unhappy",
+      "confidence": 0.944775402545929
+    }
+  },
+  {
+    "text": "quel est mon segment ?",
+    "intent": "info_client",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7666218876838684
+    }
+  }
+]
