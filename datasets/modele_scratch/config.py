@@ -11,8 +11,8 @@ class Config:
     # CHEMINS
     # ========================================================
     CHEMIN_DATASET      = r"D:\chatbot_telecom\datasets"
-    CHEMIN_MODELE_NLU   = "modele_scratch/modele_nlu.pkl"
-    CHEMIN_RAPPORT_TEST = "modele_scratch/rapport_test.json"
+    CHEMIN_MODELE_NLU   = "modele_scratch/modele_svm_full.pkl"
+    CHEMIN_RAPPORT_TEST = "modele_scratch/modele_svm_full_best_params.json"
 
     # ========================================================
     # PARAMÈTRES NLU

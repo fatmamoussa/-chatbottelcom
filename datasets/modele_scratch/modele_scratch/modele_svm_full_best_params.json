@@ -1,0 +1,10 @@
+{
+  "kernel": "linear",
+  "C": 0.5,
+  "gamma": "scale",
+  "probability": true,
+  "class_weight": "balanced",
+  "random_state": 42,
+  "max_iter": 1000,
+  "tol": 0.001
+}

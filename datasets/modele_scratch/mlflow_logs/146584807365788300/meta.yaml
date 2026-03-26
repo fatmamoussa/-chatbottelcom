@@ -1,0 +1,6 @@
+artifact_location: file:///D:/chatbot_telecom/datasets/modele_scratch/mlflow_logs/146584807365788300
+creation_time: 1774444918666
+experiment_id: '146584807365788300'
+last_update_time: 1774444918666
+lifecycle_stage: active
+name: svm_full

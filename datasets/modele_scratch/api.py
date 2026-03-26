@@ -1,203 +1,285 @@
-# ============================================================
-# api.py - Serveur Flask simplifié (sans flask-cors)
-# Projet : Chatbot Tunisie Telecom - From Scratch
-# Version : 1.0
-# ============================================================
-
-from flask import Flask, request, jsonify, render_template, send_from_directory
+# api.py - Version corrigée
+from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 import sys
 import os
-import json
+import pickle
 from datetime import datetime
 
-# Ajouter le chemin pour les imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from main import ChatbotTunisieTelecom
+from ner import NER
 from config import config
 
-app = Flask(__name__, 
-           template_folder='templates',
-           static_folder='static')
+# Importer le bon modèle
+from nlu_svm_optuna_mlflow import NLUSVMOptunaMLflow
 
-# Configuration CORS manuelle
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    return response
+app = Flask(__name__, template_folder='templates')
+CORS(app)
+
+class ChatbotTunisieTelecom:
+    """Chatbot principal avec SVM + Optuna"""
+    
+    def __init__(self):
+        self.nlu = None
+        self.ner = NER()
+        self.modele_charge = False
+        self.initialise = False
+    
+    def initialiser(self):
+        if self.initialise:
+            return
+        
+        self.nlu = NLUSVMOptunaMLflow(use_optuna=False, use_mlflow=False)
+        self.initialise = True
+    
+    def charger_modeles(self, chemin_modele="modele_scratch/modele_svm_optuna_mlflow.pkl"):
+        """Charge le modèle SVM avec la bonne structure"""
+        self.initialiser()
+        try:
+            # Vérifier si le fichier existe
+            if not os.path.exists(chemin_modele):
+                # Essayer l'autre nom de fichier
+                chemin_modele = "modele_scratch/modele_svm_full.pkl"
+                if not os.path.exists(chemin_modele):
+                    print(f"❌ Fichier modèle introuvable")
+                    return False
+            
+            # Charger avec la méthode de la classe NLUSVMOptunaMLflow
+            self.nlu.charger(chemin_modele)
+            self.modele_charge = True
+            print(f"✅ Modèle chargé: {chemin_modele}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Erreur chargement: {e}")
+            import traceback
+            traceback.print_exc()
+            return False
+    
+    def repondre(self, message):
+        if not self.modele_charge:
+            return {
+                "reponse": "Modèle non chargé. Veuillez d'abord entraîner le modèle avec: python main.py --mode train_svm",
+                "erreur": True,
+                "intention": None,
+                "confiance": 0
+            }
+        
+        entites = self.ner.extraire(message)
+        resultat_nlu = self.nlu.predire(message)
+        
+        # Utiliser le gestionnaire de dialogue si disponible
+        try:
+            from dialogue import GestionnaireDialogue
+            if not hasattr(self, 'dialogue'):
+                self.dialogue = GestionnaireDialogue(modele_nlu=self.nlu)
+            
+            reponse = self.dialogue.traiter(
+                message,
+                resultat_nlu["intention"],
+                resultat_nlu["confiance"],
+                entites
+            )
+            return reponse
+        except:
+            # Fallback simple
+            return {
+                "reponse": f"Intention détectée: {resultat_nlu['intention']} (confiance: {resultat_nlu['confiance']*100:.1f}%)",
+                "intention": resultat_nlu["intention"],
+                "confiance": resultat_nlu["confiance"],
+                "entites_detectees": entites
+            }
 
 # Initialiser le chatbot
 print("\n" + "="*60)
-print("  DÉMARRAGE DU SERVEUR API CHATBOT")
+print("  DÉMARRAGE DU SERVEUR API")
 print("="*60)
 
-try:
-    chatbot = ChatbotTunisieTelecom()
-    if not chatbot.charger_modeles():
-        print("❌ Erreur: Modèle non trouvé. Lancez d'abord: python main.py --mode train")
-        sys.exit(1)
-    print("✅ Chatbot chargé avec succès")
-except Exception as e:
-    print(f"❌ Erreur lors du chargement: {e}")
-    sys.exit(1)
+chatbot = ChatbotTunisieTelecom()
+ner = NER()
 
-# Dictionnaire pour stocker les sessions utilisateur
+# Charger le modèle
+if not chatbot.charger_modeles():
+    print("❌ Modèle non trouvé. Lancez d'abord: python main.py --mode train_svm")
+    # Continuer quand même pour les endpoints de test
+else:
+    print("✅ Chatbot chargé avec succès")
+
+print("✅ NER chargé avec succès")
+
+# Stockage des sessions
 sessions = {}
 
-@app.route('/')
-def index():
-    """Page d'accueil"""
-    return render_template('index.html')
+# ... (reste du code api.py identique)
 
-@app.route('/static/<path:path>')
-def serve_static(path):
-    """Sert les fichiers statiques"""
-    return send_from_directory('static', path)
-
-@app.route('/images/<path:filename>')
-def serve_image(filename):
-    """Sert les images"""
-    return send_from_directory('static/images', filename)
-
-@app.route('/webhook', methods=['POST', 'OPTIONS'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
-    """Endpoint compatible avec Rasa"""
-    # Gérer les requêtes OPTIONS pour CORS
+    """Endpoint compatible avec le frontend"""
+    try:
+        data = request.json
+        message = data.get('message', '').strip()
+        sender = data.get('sender', 'default')
+        
+        print(f"\n📨 [WEBHOOK] {sender}: {message}")
+        
+        if not message:
+            return jsonify([{"text": "Message vide"}]), 200
+        
+        entites = ner.extraire(message)
+        reponse = chatbot.repondre(message)
+        
+        return jsonify([{"text": reponse["reponse"]}])
+        
+    except Exception as e:
+        print(f"❌ Erreur webhook: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify([{"text": f"Désolé, une erreur est survenue."}]), 200
+
+# ... (reste du code api.py)
+# ============================================================
+# ENDPOINTS EXISTANTS
+# ============================================================
+
+@app.route('/', methods=['GET'])
+def index():
+    """Page d'accueil - interface web"""
+    try:
+        return send_from_directory('templates', 'index.html')
+    except Exception as e:
+        return jsonify({
+            "message": "Bienvenue sur l'API du chatbot Tunisie Telecom",
+            "endpoints": {
+                "POST /webhook": "Envoyer un message (frontend)",
+                "POST /api/chat": "Envoyer un message (JSON)",
+                "GET /api/health": "Vérifier l'état",
+                "GET /api/stats": "Statistiques"
+            },
+            "error": str(e)
+        })
+
+
+@app.route('/api/chat', methods=['POST', 'OPTIONS'])
+def chat():
+    """Endpoint principal du chatbot (format JSON)"""
     if request.method == 'OPTIONS':
         return '', 200
     
     try:
         data = request.json
         if not data:
-            return jsonify([{"text": "Erreur: requête invalide"}]), 400
+            return jsonify({"error": "Requête invalide"}), 400
         
-        user_id = data.get('sender', 'default_user')
         message = data.get('message', '').strip()
+        session_id = data.get('session_id', 'default')
         
-        print(f"\n📨 [{user_id}] Message: {message}")
-        
-        if not message:
-            return jsonify([{"text": "Veuillez entrer un message."}])
-        
-        # Gérer la session utilisateur
-        if user_id not in sessions:
-            sessions[user_id] = {
-                "historique": [],
-                "dernier_message": None
-            }
-        
-        # Obtenir la réponse du chatbot
-        reponse = chatbot.repondre(message)
-        
-        # Sauvegarder dans l'historique
-        sessions[user_id]["historique"].append({
-            "message": message,
-            "reponse": reponse["reponse"],
-            "intention": reponse["intention"],
-            "confiance": reponse["confiance"],
-            "timestamp": datetime.now().isoformat()
-        })
-        
-        print(f"📤 Réponse: {reponse['reponse'][:100]}...")
-        print(f"   Intention: {reponse['intention']} ({reponse['confiance']*100:.1f}%)")
-        
-        return jsonify([{"text": reponse["reponse"]}])
-    
-    except Exception as e:
-        print(f"❌ Erreur: {e}")
-        return jsonify([{"text": f"Désolé, une erreur s'est produite: {str(e)}"}]), 500
-
-@app.route('/api/chat', methods=['POST', 'OPTIONS'])
-def chat_api():
-    """API alternative plus détaillée"""
-    if request.method == 'OPTIONS':
-        return '', 200
-    
-    try:
-        data = request.json
-        message = data.get('message', '').strip()
-        user_id = data.get('user_id', 'default')
+        print(f"\n📨 [API] {session_id}: {message}")
         
         if not message:
             return jsonify({"error": "Message vide"}), 400
         
+        if session_id not in sessions:
+            sessions[session_id] = {
+                "historique": [],
+                "dernier_message": None,
+                "contexte": {}
+            }
+        
+        entites = ner.extraire(message)
         reponse = chatbot.repondre(message)
+        
+        if "entites_detectees" not in reponse:
+            reponse["entites_detectees"] = entites
+        
+        sessions[session_id]["historique"].append({
+            "message": message,
+            "reponse": reponse["reponse"],
+            "intention": reponse.get("intention"),
+            "confiance": reponse.get("confiance"),
+            "entites": entites,
+            "timestamp": datetime.now().isoformat()
+        })
+        
+        print(f"📤 Réponse: {reponse['reponse'][:100]}...")
+        print(f"   Entités: {entites}")
         
         return jsonify({
             "success": True,
             "reponse": reponse["reponse"],
-            "intention": reponse["intention"],
-            "confiance": reponse["confiance"],
-            "contexte": reponse.get("contexte"),
-            "slots": reponse.get("slots", {})
+            "intention": reponse.get("intention"),
+            "confiance": reponse.get("confiance"),
+            "entites": entites,
+            "session_id": session_id
         })
     
     except Exception as e:
+        print(f"❌ Erreur: {e}")
+        import traceback
+        traceback.print_exc()
         return jsonify({"success": False, "error": str(e)}), 500
 
-@app.route('/api/reset', methods=['POST', 'OPTIONS'])
-def reset_session():
-    """Réinitialise une session utilisateur"""
-    if request.method == 'OPTIONS':
-        return '', 200
-    
-    data = request.json
-    user_id = data.get('user_id', 'default')
-    
-    if user_id in sessions:
-        del sessions[user_id]
-    
-    chatbot.dialogue.reinitialiser()
-    
-    return jsonify({"success": True, "message": "Session réinitialisée"})
+
+@app.route('/api/session/<session_id>', methods=['GET'])
+def get_session(session_id):
+    """Récupère l'historique d'une session"""
+    if session_id in sessions:
+        return jsonify({
+            "success": True,
+            "historique": sessions[session_id]["historique"][-10:]
+        })
+    return jsonify({"success": False, "error": "Session non trouvée"}), 404
+
+
+@app.route('/api/session/<session_id>', methods=['DELETE'])
+def reset_session(session_id):
+    """Réinitialise une session"""
+    if session_id in sessions:
+        del sessions[session_id]
+    return jsonify({"success": True})
+
 
 @app.route('/api/health', methods=['GET'])
 def health():
-    """Vérifie que le serveur fonctionne"""
+    """Vérification de santé"""
     return jsonify({
         "status": "ok",
-        "modele_charge": chatbot.modele_charge,
-        "timestamp": datetime.now().isoformat(),
-        "sessions_actives": len(sessions)
+        "model_loaded": chatbot.modele_charge,
+        "model_type": "SVM + Embeddings",
+        "ner_loaded": True,
+        "sessions_active": len(sessions),
+        "timestamp": datetime.now().isoformat()
     })
 
-@app.route('/api/client/<cc>', methods=['GET'])
-def get_client_info(cc):
-    """Retourne les informations d'un client"""
+
+@app.route('/api/stats', methods=['GET'])
+def stats():
+    """Statistiques du chatbot"""
     try:
-        from actions import DF_PARC, client_existe
+        from data import compter_intentions
+        compteurs = compter_intentions()
         
-        if not client_existe(cc):
-            return jsonify({"error": "Client non trouvé"}), 404
-        
-        client = DF_PARC[DF_PARC["CONTRAT_CLIENT"] == cc].iloc[0].to_dict()
-        
-        # Convertir les types non sérialisables
-        for k, v in client.items():
-            if hasattr(v, 'isoformat'):  # Pour les dates
-                client[k] = v.isoformat() if v else None
-            elif pd.isna(v):  # Pour les NaN
-                client[k] = None
-        
-        return jsonify({"success": True, "data": client})
-    
+        return jsonify({
+            "success": True,
+            "intentions": len(compteurs),
+            "exemples_total": sum(compteurs.values()),
+            "repartition": compteurs,
+            "sessions_actives": len(sessions)
+        })
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"success": False, "error": str(e)}), 500
+
 
 if __name__ == '__main__':
-    print("\n🚀 Serveur démarré sur http://localhost:5005")
-    print("📝 Endpoints disponibles:")
-    print("   • GET  /              - Interface web")
-    print("   • POST /webhook        - Compatible Rasa")
-    print("   • POST /api/chat       - API détaillée")
-    print("   • POST /api/reset      - Réinitialiser session")
-    print("   • GET  /api/health     - Vérification santé")
-    print("   • GET  /api/client/<cc> - Infos client")
     print("\n" + "="*60)
-    print("⚠️  Assurez-vous d'avoir un dossier 'templates' avec index.html")
-    print("   et un dossier 'static/images' avec vos images")
+    print("  API CHATBOT TUNISIE TELECOM")
+    print("="*60)
+    print("🚀 Serveur démarré sur http://localhost:5005")
+    print("📝 Endpoints:")
+    print("   POST /webhook    - Envoyer un message (frontend)")
+    print("   POST /api/chat   - Envoyer un message (JSON)")
+    print("   GET  /api/health - Vérification santé")
+    print("   GET  /api/stats  - Statistiques")
     print("="*60)
     
-    app.run(host='0.0.0.0', port=5005, debug=True, threaded=True)
+    app.run(host='0.0.0.0', port=5005, debug=True)

@@ -400,7 +400,7 @@ body {
 <!-- ===== NAVBAR ===== -->
 <nav class="topnav">
   <div class="nav-brand">
-    <img src="images/Tunisie-Telecom.jpg" alt="Tunisie Telecom" class="nav-logo"
+    <img src="static/images/Tunisie-Telecom.jpg" alt="Tunisie Telecom" class="nav-logo"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
     >
     <div style="display:none;width:32px;height:32px;border-radius:8px;background:var(--blue);align-items:center;justify-content:center;color:white;font-weight:800;font-size:13px;">TT</div>
@@ -438,10 +438,7 @@ body {
         <span class="profile-row-label">Statut</span>
         <span class="profile-row-value" id="profileStatut">—</span>
       </div>
-      <div class="profile-row">
-        <span class="profile-row-label">Segment</span>
-        <span class="profile-row-value" id="profileSegment">—</span>
-      </div>
+      
     </div>
 
     <div class="card">
@@ -461,7 +458,7 @@ body {
   <div class="chat-panel">
     <div class="chat-header">
       <div class="chat-header-left">
-        <img src="images/Tunisie-Telecom.jpg" alt="Assistant TT" class="chat-avatar"
+        <img src="static/images/Tunisie-Telecom.jpg" alt="Assistant TT" class="chat-avatar"
              onerror="this.style.display='none'">
         <div>
           <div class="chat-bot-name">Assistant Tunisie Telecom</div>
@@ -477,12 +474,12 @@ body {
     <div class="messages" id="messages">
       <div class="date-sep">Aujourd'hui</div>
       <div class="msg-row bot">
-        <div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\'>TT</div>'"></div>
+        <div class="msg-av bot"><img src="static/images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\'>TT</div>'"></div>
         <div class="msg-c">
           <div class="bubble bot">
             Bonjour ! 👋 Bienvenue sur l'assistant <strong>Tunisie Telecom</strong>.<br><br>
             Pour consulter vos informations, veuillez entrer votre <strong>numéro client</strong><br>
-            <span style="font-family:monospace; color:var(--blue);">exemple : CC_52099260</span>
+            <span style="font-family:monospace; color:var(--blue);">exemple : CC_12345678</span>
           </div>
           <div class="msg-time">maintenant</div>
         </div>
@@ -550,16 +547,6 @@ body {
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">ℹ️ MODÈLE NLU</div>
-      <div style="font-size:11px; color:var(--text-soft); line-height:1.7;">
-        <div>🧠 <strong>SVM + TF-IDF</strong></div>
-        <div>🦙 Fallback <strong>Ollama</strong></div>
-        <div>🎯 Accuracy : <strong style="color:var(--blue)">92%</strong></div>
-        <div>📚 Intentions : <strong>55</strong></div>
-        <div>📝 Exemples : <strong>5 171</strong></div>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -570,7 +557,7 @@ body {
   <div class="dash-kpi-row">
     <div class="kpi-card">
       <div class="kpi-icon">🎯</div>
-      <div class="kpi-value">92%</div>
+      <div class="kpi-value">90%</div><!-- a revoir l accurancy -->
       <div class="kpi-label">Accuracy Test</div>
       <div class="kpi-sub">↑ Validation croisée 5-fold</div>
     </div>
@@ -688,7 +675,7 @@ function addMessage(text, sender) {
   const av = document.createElement("div");
   av.className = `msg-av ${sender}`;
   if (sender === "bot") {
-    av.innerHTML = `<img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'">`;
+    av.innerHTML = `<img src="static/images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'">`;
   } else {
     av.textContent = "👤";
   }
@@ -708,7 +695,7 @@ function addMessage(text, sender) {
 function addTyping() {
   const row = document.createElement("div");
   row.className = "msg-row bot"; row.id = "typing";
-  row.innerHTML = `<div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div><div class="msg-c"><div class="bubble bot typing-b"><span></span><span></span><span></span></div></div>`;
+  row.innerHTML = `<div class="msg-av bot"><img src="static/images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div><div class="msg-c"><div class="bubble bot typing-b"><span></span><span></span><span></span></div></div>`;
   messagesEl.appendChild(row);
   messagesEl.scrollTop = messagesEl.scrollHeight;
 }
@@ -825,12 +812,12 @@ function clearChat() {
   messagesEl.innerHTML = `
     <div class="date-sep">Aujourd'hui</div>
     <div class="msg-row bot">
-      <div class="msg-av bot"><img src="images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div>
+      <div class="msg-av bot"><img src="static/images/Tunisie-Telecom.jpg" alt="TT" onerror="this.parentElement.innerHTML='<div style=\\'width:28px;height:28px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;font-weight:700;\\'>TT</div>'"></div>
       <div class="msg-c">
         <div class="bubble bot">
           Bonjour ! 👋 Bienvenue sur l'assistant <strong>Tunisie Telecom</strong>.<br><br>
           Pour consulter vos informations, veuillez entrer votre <strong>numéro client</strong><br>
-          <span style="font-family:monospace;color:var(--blue);">exemple : CC_52099260</span>
+          <span style="font-family:monospace;color:var(--blue);">exemple : CC_12345678</span>
         </div>
         <div class="msg-time">${getTime()}</div>
       </div>
