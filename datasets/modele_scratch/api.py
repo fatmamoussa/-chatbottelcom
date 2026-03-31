@@ -11,18 +11,19 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from ner import NER
 from config import config
 
-# Importer le bon modèle
-from nlu_svm_optuna_mlflow import NLUSVMOptunaMLflow
+# Importer la bonne classe (celle utilisée par main.py)
+from main import NLUSVM  # Changé ici
 
 app = Flask(__name__, template_folder='templates')
 CORS(app)
 
 class ChatbotTunisieTelecom:
-    """Chatbot principal avec SVM + Optuna"""
+    """Chatbot principal avec SVM"""
     
     def __init__(self):
         self.nlu = None
-        self.ner = NER()
+        self.ner = None
+        self.dialogue = None
         self.modele_charge = False
         self.initialise = False
     
@@ -30,25 +31,36 @@ class ChatbotTunisieTelecom:
         if self.initialise:
             return
         
-        self.nlu = NLUSVMOptunaMLflow(use_optuna=False, use_mlflow=False)
-        self.initialise = True
+        try:
+            self.nlu = NLUSVM()  # Utilise la classe de main.py
+            self.ner = NER()
+            self.initialise = True
+        except Exception as e:
+            print(f"❌ Erreur initialisation: {e}")
     
-    def charger_modeles(self, chemin_modele="modele_scratch/modele_svm_optuna_mlflow.pkl"):
-        """Charge le modèle SVM avec la bonne structure"""
+    def charger_modeles(self, chemin_modele="modele_scratch/modele_svm_full.pkl"):
+        """Charge le modèle SVM"""
         self.initialiser()
         try:
             # Vérifier si le fichier existe
             if not os.path.exists(chemin_modele):
-                # Essayer l'autre nom de fichier
-                chemin_modele = "modele_scratch/modele_svm_full.pkl"
-                if not os.path.exists(chemin_modele):
-                    print(f"❌ Fichier modèle introuvable")
-                    return False
+                print(f"❌ Fichier modèle introuvable: {chemin_modele}")
+                return False
             
-            # Charger avec la méthode de la classe NLUSVMOptunaMLflow
+            # Charger avec la méthode de NLUSVM
             self.nlu.charger(chemin_modele)
             self.modele_charge = True
             print(f"✅ Modèle chargé: {chemin_modele}")
+            
+            # Initialiser le gestionnaire de dialogue
+            try:
+                from dialogue import GestionnaireDialogue
+                self.dialogue = GestionnaireDialogue(modele_nlu=self.nlu)
+                print("✅ Gestionnaire de dialogue initialisé")
+            except Exception as e:
+                print(f"⚠️ Dialogue non disponible: {e}")
+                self.dialogue = None
+            
             return True
             
         except Exception as e:
@@ -58,7 +70,7 @@ class ChatbotTunisieTelecom:
             return False
     
     def repondre(self, message):
-        if not self.modele_charge:
+        if not self.modele_charge or self.nlu is None:
             return {
                 "reponse": "Modèle non chargé. Veuillez d'abord entraîner le modèle avec: python main.py --mode train_svm",
                 "erreur": True,
@@ -66,30 +78,36 @@ class ChatbotTunisieTelecom:
                 "confiance": 0
             }
         
-        entites = self.ner.extraire(message)
+        # Extraire les entités
+        if self.ner:
+            entites = self.ner.extraire(message)
+        else:
+            entites = {}
+        
+        # Prédire l'intention
         resultat_nlu = self.nlu.predire(message)
         
         # Utiliser le gestionnaire de dialogue si disponible
-        try:
-            from dialogue import GestionnaireDialogue
-            if not hasattr(self, 'dialogue'):
-                self.dialogue = GestionnaireDialogue(modele_nlu=self.nlu)
-            
-            reponse = self.dialogue.traiter(
-                message,
-                resultat_nlu["intention"],
-                resultat_nlu["confiance"],
-                entites
-            )
-            return reponse
-        except:
-            # Fallback simple
-            return {
-                "reponse": f"Intention détectée: {resultat_nlu['intention']} (confiance: {resultat_nlu['confiance']*100:.1f}%)",
-                "intention": resultat_nlu["intention"],
-                "confiance": resultat_nlu["confiance"],
-                "entites_detectees": entites
-            }
+        if self.dialogue:
+            try:
+                reponse = self.dialogue.traiter(
+                    message,
+                    resultat_nlu["intention"],
+                    resultat_nlu["confiance"],
+                    entites
+                )
+                return reponse
+            except Exception as e:
+                print(f"Erreur dialogue: {e}")
+        
+        # Fallback simple
+        return {
+            "reponse": f"Intention détectée: {resultat_nlu['intention']} (confiance: {resultat_nlu['confiance']*100:.1f}%)",
+            "intention": resultat_nlu["intention"],
+            "confiance": resultat_nlu["confiance"],
+            "entites_detectees": entites,
+            "erreur": False
+        }
 
 # Initialiser le chatbot
 print("\n" + "="*60)
@@ -111,35 +129,9 @@ print("✅ NER chargé avec succès")
 # Stockage des sessions
 sessions = {}
 
-# ... (reste du code api.py identique)
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    """Endpoint compatible avec le frontend"""
-    try:
-        data = request.json
-        message = data.get('message', '').strip()
-        sender = data.get('sender', 'default')
-        
-        print(f"\n📨 [WEBHOOK] {sender}: {message}")
-        
-        if not message:
-            return jsonify([{"text": "Message vide"}]), 200
-        
-        entites = ner.extraire(message)
-        reponse = chatbot.repondre(message)
-        
-        return jsonify([{"text": reponse["reponse"]}])
-        
-    except Exception as e:
-        print(f"❌ Erreur webhook: {e}")
-        import traceback
-        traceback.print_exc()
-        return jsonify([{"text": f"Désolé, une erreur est survenue."}]), 200
-
-# ... (reste du code api.py)
 # ============================================================
-# ENDPOINTS EXISTANTS
+# ENDPOINTS
 # ============================================================
 
 @app.route('/', methods=['GET'])
@@ -155,9 +147,35 @@ def index():
                 "POST /api/chat": "Envoyer un message (JSON)",
                 "GET /api/health": "Vérifier l'état",
                 "GET /api/stats": "Statistiques"
-            },
-            "error": str(e)
+            }
         })
+
+
+@app.route('/webhook', methods=['POST', 'OPTIONS'])
+def webhook():
+    """Endpoint compatible avec le frontend"""
+    if request.method == 'OPTIONS':
+        return '', 200
+    
+    try:
+        data = request.json
+        message = data.get('message', '').strip()
+        sender = data.get('sender', 'default')
+        
+        print(f"\n📨 [WEBHOOK] {sender}: {message}")
+        
+        if not message:
+            return jsonify([{"text": "Message vide"}]), 200
+        
+        reponse = chatbot.repondre(message)
+        
+        return jsonify([{"text": reponse["reponse"]}])
+        
+    except Exception as e:
+        print(f"❌ Erreur webhook: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify([{"text": f"Désolé, une erreur est survenue."}]), 200
 
 
 @app.route('/api/chat', methods=['POST', 'OPTIONS'])
@@ -186,11 +204,8 @@ def chat():
                 "contexte": {}
             }
         
-        entites = ner.extraire(message)
+        entites = ner.extraire(message) if ner else {}
         reponse = chatbot.repondre(message)
-        
-        if "entites_detectees" not in reponse:
-            reponse["entites_detectees"] = entites
         
         sessions[session_id]["historique"].append({
             "message": message,
@@ -202,7 +217,6 @@ def chat():
         })
         
         print(f"📤 Réponse: {reponse['reponse'][:100]}...")
-        print(f"   Entités: {entites}")
         
         return jsonify({
             "success": True,
@@ -246,7 +260,7 @@ def health():
         "status": "ok",
         "model_loaded": chatbot.modele_charge,
         "model_type": "SVM + Embeddings",
-        "ner_loaded": True,
+        "ner_loaded": ner is not None,
         "sessions_active": len(sessions),
         "timestamp": datetime.now().isoformat()
     })
@@ -256,16 +270,22 @@ def health():
 def stats():
     """Statistiques du chatbot"""
     try:
-        from data import compter_intentions
-        compteurs = compter_intentions()
-        
-        return jsonify({
-            "success": True,
-            "intentions": len(compteurs),
-            "exemples_total": sum(compteurs.values()),
-            "repartition": compteurs,
-            "sessions_actives": len(sessions)
-        })
+        if chatbot.modele_charge and chatbot.nlu:
+            stats = chatbot.nlu.stats
+            return jsonify({
+                "success": True,
+                "total_predictions": stats.get('total_predictions', 0),
+                "avg_confidence": stats.get('avg_confidence', 0),
+                "train_accuracy": stats.get('train_accuracy', 0),
+                "intentions": len(chatbot.nlu.label_encoder.classes_) if hasattr(chatbot.nlu, 'label_encoder') else 0,
+                "sessions_actives": len(sessions)
+            })
+        else:
+            return jsonify({
+                "success": True,
+                "model_loaded": False,
+                "sessions_actives": len(sessions)
+            })
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 

@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1774713876864
+current_stage: None
+description: null
+last_updated_timestamp: 1774713876864
+name: SVM_Telecom
+run_id: bdd737575d5041bcb1846208690eee1b
+run_link: null
+source: file:///D:/chatbot_telecom/datasets/modele_scratch/mlflow_logs/266140618041837205/bdd737575d5041bcb1846208690eee1b/artifacts/svm_model
+status: READY
+status_message: null
+storage_location: file:///D:/chatbot_telecom/datasets/modele_scratch/mlflow_logs/266140618041837205/bdd737575d5041bcb1846208690eee1b/artifacts/svm_model
+user_id: null
+version: 4

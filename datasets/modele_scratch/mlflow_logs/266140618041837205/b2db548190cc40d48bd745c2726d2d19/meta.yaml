@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/chatbot_telecom/datasets/modele_scratch/mlflow_logs/266140618041837205/b2db548190cc40d48bd745c2726d2d19/artifacts
+end_time: 1774713744361
+entry_point_name: ''
+experiment_id: '266140618041837205'
+lifecycle_stage: active
+run_id: b2db548190cc40d48bd745c2726d2d19
+run_name: training_20260328_170143
+run_uuid: b2db548190cc40d48bd745c2726d2d19
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1774713704253
+status: 3
+tags: []
+user_id: hp

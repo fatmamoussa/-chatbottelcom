@@ -1,0 +1,22 @@
+services:
+  chatbot:
+    build: .
+    container_name: chatbot-telecom
+    ports:
+      - "5005:5005"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Monter les CSV (données)
+      - ./datasets:/app/datasets
+      # Monter les modèles
+      - ./datasets/modele_scratch/modele_scratch:/app/modele_scratch
+      # Logs
+      - ./mlflow_logs:/app/mlflow_logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5005/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s

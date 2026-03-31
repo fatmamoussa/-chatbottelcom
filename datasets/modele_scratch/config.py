@@ -1,8 +1,28 @@
 # ========================================================
 # config.py - Configuration complète
 # Projet : Chatbot Tunisie Telecom
-# Version : 6.0 - Section TEST ajoutée
+# Version : 6.3 - Compatible Windows local + Docker
 # ========================================================
+
+import os
+from pathlib import Path
+
+# Répertoire racine du projet (là où se trouve ce fichier)
+BASE_DIR = Path(__file__).resolve().parent
+
+# ========================================================
+# CHEMIN DATASET :
+#   - Docker   : variable d'env DATASET_PATH=/app/datasets
+#   - Windows  : chemin fixe D:\chatbot_telecom\datasets
+# ========================================================
+_dataset_env = os.environ.get("DATASET_PATH", "")
+if _dataset_env:
+    # On est dans Docker
+    CHEMIN_DATASET_FINAL = _dataset_env
+else:
+    # On est en local Windows — chemin fixe
+    CHEMIN_DATASET_FINAL = r"D:\chatbot_telecom\datasets"
+
 
 class Config:
     """Configuration globale du projet"""
@@ -10,9 +30,9 @@ class Config:
     # ========================================================
     # CHEMINS
     # ========================================================
-    CHEMIN_DATASET      = r"D:\chatbot_telecom\datasets"
-    CHEMIN_MODELE_NLU   = "modele_scratch/modele_svm_full.pkl"
-    CHEMIN_RAPPORT_TEST = "modele_scratch/modele_svm_full_best_params.json"
+    CHEMIN_DATASET      = CHEMIN_DATASET_FINAL
+    CHEMIN_MODELE_NLU   = str(BASE_DIR / "modele_scratch" / "modele_svm_full.pkl")
+    CHEMIN_RAPPORT_TEST = str(BASE_DIR / "modele_scratch" / "modele_svm_full_best_params.json")
 
     # ========================================================
     # PARAMÈTRES NLU
@@ -78,10 +98,14 @@ class Config:
         ]
 
         REPONSES_SIMPLES = {
-            "saluer":    ["Bonjour ! Comment puis-je vous aider ?",
-                          "Bonjour ! Je suis l'assistant Tunisie Telecom, que puis-je faire pour vous ?"],
-            "au_revoir": ["Au revoir ! Merci d'avoir contacté Tunisie Telecom.",
-                          "Bonne journée ! N'hésitez pas à revenir."],
+            "saluer":    [
+                "Bonjour ! Comment puis-je vous aider ?",
+                "Bonjour ! Je suis l'assistant Tunisie Telecom, que puis-je faire pour vous ?"
+            ],
+            "au_revoir": [
+                "Au revoir ! Merci d'avoir contacté Tunisie Telecom.",
+                "Bonne journée ! N'hésitez pas à revenir."
+            ],
             "remercier": ["Avec plaisir !", "Je suis là pour vous aider !"],
             "affirmer":  ["Parfait, je continue."],
             "nier":      ["D'accord, que souhaitez-vous faire ?"]
@@ -127,26 +151,17 @@ class Config:
         }
 
     # ========================================================
-    # PARAMÈTRES TEST INTÉGRATION  ← SECTION MANQUANTE AJOUTÉE
+    # PARAMÈTRES TEST INTÉGRATION
     # ========================================================
     class TEST:
-        # Nombre de clients à tester en mode intégration
         NB_CLIENTS_TEST = 50
+        SEUIL_REUSSITE  = 0.80
 
-        # Taux de réussite minimum acceptable (0.0 à 1.0)
-        SEUIL_REUSSITE = 0.80
-
-        # Types de requêtes testées pour chaque client
         TYPES_REQUETES = [
-            "offre",
-            "recharges",
-            "appels",
-            "internet",
-            "cout",
-            "statut",
+            "offre", "recharges", "appels",
+            "internet", "cout", "statut",
         ]
 
-        # Messages de test par type (utilisés dans test_integration.py)
         MESSAGES_TEST = {
             "offre":     "quelle est mon offre {cc}",
             "recharges": "mes recharges {cc}",
@@ -156,6 +171,62 @@ class Config:
             "statut":    "mon statut {cc}",
         }
 
+    # ========================================================
+    # PARAMÈTRES SERVEUR API
+    # ========================================================
+    class API:
+        HOST  = os.environ.get("API_HOST", "0.0.0.0")
+        PORT  = int(os.environ.get("API_PORT", 5005))
+        DEBUG = os.environ.get("API_DEBUG", "false").lower() == "true"
+
+    # ========================================================
+    # PARAMÈTRES MLFLOW
+    # ========================================================
+    class MLFLOW:
+        TRACKING_URI   = os.environ.get("MLFLOW_TRACKING_URI", "file:./mlflow_logs")
+        EXPERIMENT_SVM = "svm_telecom"
+        EXPERIMENT_XGB = "xgboost_telecom"
+        EXPERIMENT_RF  = "randomforest_telecom"
+
 
 # Instance globale
 config = Config()
+
+
+# ========================================================
+# VÉRIFICATION AU DÉMARRAGE (optionnelle)
+# ========================================================
+
+def verifier_configuration():
+    """Vérifie que tous les fichiers nécessaires sont présents."""
+    print("\n" + "=" * 60)
+    print("  VÉRIFICATION DE LA CONFIGURATION")
+    print("=" * 60)
+
+    print(f"📁 Datasets : {config.CHEMIN_DATASET}")
+    dataset_path = Path(config.CHEMIN_DATASET)
+
+    if dataset_path.exists():
+        for nom, fichier in config.DATASET.FICHIERS.items():
+            chemin = dataset_path / fichier
+            if chemin.exists():
+                taille = chemin.stat().st_size / 1024
+                print(f"   ✅ {fichier:<30} ({taille:.0f} Ko)")
+            else:
+                print(f"   ❌ {fichier:<30} MANQUANT")
+    else:
+        print(f"   ⚠️  Dossier introuvable : {config.CHEMIN_DATASET}")
+
+    print(f"\n🤖 Modèle : {config.CHEMIN_MODELE_NLU}")
+    if Path(config.CHEMIN_MODELE_NLU).exists():
+        taille_mb = Path(config.CHEMIN_MODELE_NLU).stat().st_size / (1024 * 1024)
+        print(f"   ✅ Modèle trouvé ({taille_mb:.1f} Mo)")
+    else:
+        print(f"   ⚠️  Modèle introuvable → python main.py --mode train_svm")
+
+    print(f"\n🌐 API : http://{config.API.HOST}:{config.API.PORT}")
+    print("=" * 60)
+
+
+if __name__ == "__main__":
+    verifier_configuration()
